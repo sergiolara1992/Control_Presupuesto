@@ -1,4 +1,3 @@
-import React from 'react'
 import {
     LeadingActions,
     SwipeableList,
@@ -6,7 +5,8 @@ import {
     SwipeAction,
     TrailingActions
 } from 'react-swipeable-list'
-import 'react-swipeable-list/dist/styles.css'
+import "react-swipeable-list/dist/styles.css"
+
 import { formatearFecha } from '../helpers';
 
 import IconoAhorro from '../img/icono_ahorro.svg'
@@ -33,11 +33,11 @@ const Gastos = ({gasto, setGastoEditar, eliminarGasto}) => {
     const { categoria, nombre, cantidad, id, fecha } = gasto;
 
     const leadingActions = () => (
-        <leadingActions>
+        <LeadingActions>
             <SwipeAction onClick={() => setGastoEditar(gasto)}>
                 Editar
             </SwipeAction>
-        </leadingActions>
+        </LeadingActions>
     )
 
     const trailingActions = () => (

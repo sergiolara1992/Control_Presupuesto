@@ -30,14 +30,14 @@ const Modal = ({
   }, []);
 
   const ocultarModal = () => {
-    setAnimarModal(false);
+    setAnimarModal(false)
     setGastoEditar({})
     setTimeout(() => {
       setModal(false);
     }, 300);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if ([nombre, cantidad, categoria].includes("")) {
@@ -45,17 +45,21 @@ const Modal = ({
 
       setTimeout(() => {
         setMensaje("");
-      }, 3000);
-      return;
+      }, 3000)
+      return
     }
 
     guardarGasto({ nombre, cantidad, categoria, id, fecha });
-  };
+  }
 
   return (
     <div className="modal">
       <div className="cerrar-modal">
-        <img src={CerrarBtn} alt="cerrar modal" onClick={ocultarModal} />
+        <img 
+          src={CerrarBtn}
+          alt="cerrar modal"
+          onClick={ocultarModal} 
+          />
       </div>
 
       <form
@@ -73,7 +77,7 @@ const Modal = ({
             type="text"
             placeholder="Añade el Nombre del Gasto"
             value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            onChange={e => setNombre(e.target.value)}
           />
         </div>
         <div className="campo">
@@ -84,7 +88,7 @@ const Modal = ({
             type="number"
             placeholder="Añade la cantidad del gasto"
             value={cantidad}
-            onChange={(e) => setCantidad(Number(e.target.value))}
+            onChange={ e => setCantidad(Number(e.target.value))}
           />
         </div>
         <div className="campo">
@@ -93,7 +97,7 @@ const Modal = ({
           <select
             id="categoria"
             value={categoria}
-            onChange={(e) => setCategoria(e.target.value)}
+            onChange={e => setCategoria(e.target.value)}
           >
             <option value="">-- Seleccione --</option>
             <option value="ahorro">Ahorro</option>
@@ -115,4 +119,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default Modal

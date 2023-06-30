@@ -1,19 +1,42 @@
 import React from 'react'
-import Gastos from './Gastos'
+import Gasto from './Gastos'
 
-const ListadoGastos = ({gastos, setGastoEditar, eliminarGasto}) => {
+const ListadoGastos = ({
+  gastos,
+  setGastoEditar,
+  eliminarGasto,
+  filtro,
+  gastosFiltrados
+  }) => {
   return (
-    <div className='Listado-gastos contenedor'>
-     <h2>{gastos.length ? 'Gastos' : 'No Hay Gastos aun'}</h2>
+    <div className="listado-gastos contenedor">
 
-     {gastos.map( gasto => (
-        <Gastos
-        key={gasto.id}
-        gasto={gasto}
-        setGastoEditar={setGastoEditar}
-        eliminarGasto={eliminarGasto}
-        />
-     ))}
+
+      {filtro ? (
+        <>
+          <h2>{gastosFiltrados.length ? 'Gastos' : 'No Hay Gastos en esta categoría'}</h2>
+          {gastosFiltrados.map( gasto => (
+            <Gasto
+              key={gasto.id}
+              gasto={gasto}
+              setGastoEditar={setGastoEditar}
+              eliminarGasto={eliminarGasto}
+            />
+          ))}
+        </>
+      ) : (
+        <>
+          <h2>{gastos.length ? 'Gastos' : 'No Hay Gastos aún'}</h2>
+          {gastos.map(gasto => (
+            <Gasto
+              key={gasto.id}
+              gasto={gasto}
+              setGastoEditar={setGastoEditar}
+              eliminarGasto={eliminarGasto}
+            />
+          ))}
+        </>
+      )}
     </div>
   )
 }
