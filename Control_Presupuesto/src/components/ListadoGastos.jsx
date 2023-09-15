@@ -1,21 +1,23 @@
-import React from 'react'
-import Gasto from './Gastos'
+import React from "react";
+import Gasto from "./Gastos";
 
 const ListadoGastos = ({
   gastos,
   setGastoEditar,
   eliminarGasto,
   filtro,
-  gastosFiltrados
-  }) => {
+  gastosFiltrados,
+}) => {
   return (
     <div className="listado-gastos contenedor">
-
-
       {filtro ? (
         <>
-          <h2>{gastosFiltrados.length ? 'Gastos' : 'No Hay Gastos en esta categoría'}</h2>
-          {gastosFiltrados.map( gasto => (
+          <h2>
+            {gastosFiltrados.length
+              ? "Gastos"
+              : "No Hay Gastos en esta categoría"}
+          </h2>
+          {gastosFiltrados.map(gasto => (
             <Gasto
               key={gasto.id}
               gasto={gasto}
@@ -26,8 +28,8 @@ const ListadoGastos = ({
         </>
       ) : (
         <>
-          <h2>{gastos.length ? 'Gastos' : 'No Hay Gastos aún'}</h2>
-          {gastos.map(gasto => (
+          <h2>{gastos.length ? "Gastos" : "No Hay Gastos aún"}</h2>
+          {gastos.map( gasto => (
             <Gasto
               key={gasto.id}
               gasto={gasto}
@@ -36,9 +38,10 @@ const ListadoGastos = ({
             />
           ))}
         </>
-      )}
+      )
+      }
     </div>
-  )
-}
+  );
+};
 
-export default ListadoGastos
+export default ListadoGastos;

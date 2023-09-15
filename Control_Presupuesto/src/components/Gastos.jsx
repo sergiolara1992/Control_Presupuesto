@@ -76,4 +76,4 @@ const Gastos = ({gasto, setGastoEditar, eliminarGasto}) => {
   );
 }
 
-export default Gastos
+export default Gastos;
